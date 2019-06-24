@@ -117,4 +117,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return cursor.getCount();
     }
 
+    public void clearDatabase() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String clearDBQuery = "DELETE FROM task";
+        db.execSQL(clearDBQuery);
+    }
+
 }

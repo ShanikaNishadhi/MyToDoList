@@ -3,6 +3,7 @@ package com.phraseapp.shanika.phraseapptodolist;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +39,7 @@ public class AddActivity extends AppCompatActivity implements
 
         btnDatePicker.setOnClickListener(this);
         btnTimePicker.setOnClickListener(this);
+
     }
 
     @Override
@@ -101,7 +103,8 @@ public class AddActivity extends AppCompatActivity implements
         db.addTask(new Task(title, desc, date,time));
 
         Intent intent = new Intent(this, HomeActivity.class);
-        startActivityForResult(intent,1);
+        new HomeActivity();
+        startActivity(intent);
     }
 
 }

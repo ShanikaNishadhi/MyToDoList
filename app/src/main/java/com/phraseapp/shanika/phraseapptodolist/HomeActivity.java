@@ -24,13 +24,13 @@ public class HomeActivity extends AppCompatActivity {
 
     ListView listView ;
     String[] taskList = {
-            "Meet the Doctor",
-            "Study for exam",
-            "Meet Anne",
-            "Watch the Movie",
-            "Deposit Money",
-            "Go to Grocery",
-            "Have a bath"
+//            "Meet the Doctor",
+//            "Study for exam",
+//            "Meet Anne",
+//            "Watch the Movie",
+//            "Deposit Money",
+//            "Go to Grocery",
+//            "Have a bath"
     };
     ArrayList<String> taskTitles = new ArrayList<>();
     DatabaseHandler db;
@@ -50,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, taskList);
+                android.R.layout.simple_list_item_1, android.R.id.text1, taskTitles);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -60,9 +60,6 @@ public class HomeActivity extends AppCompatActivity {
                                     int position, long id) {
                 int itemPosition     = position;
                 String  itemValue    = (String) listView.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(),
-                        "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
-                        .show();
                 Intent intent = new Intent(HomeActivity.this, TaskDetailsActivity.class);
                 startActivity(intent);
             }
@@ -76,11 +73,5 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
 }
 
