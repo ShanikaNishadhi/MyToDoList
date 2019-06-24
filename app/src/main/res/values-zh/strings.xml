@@ -1,0 +1,11 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">
+        <xliff:g id="company_name">PhraseApp </xliff:g>待办事项清单
+    </string>
+    <string name="example_edittext">输入你的任务</string>
+    <string name="add_activity">添加活动</string>
+    <string name="select_date">选择日期</string>
+    <string name="select_time">选择时间</string>
+    <string name="enter_description">输入说明</string>
+    <string name="save_activity">保存活动</string>
+</resources>

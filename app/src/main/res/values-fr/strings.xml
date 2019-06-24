@@ -1,0 +1,11 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">
+        <xliff:g id="company_name">PhraseApp </xliff:g>Liste de choses à faire
+    </string>
+    <string name="example_edittext">Entrez votre tâche</string>
+    <string name="add_activity">Ajouter une activité</string>
+    <string name="select_date">SÉLECTIONNER UNE DATE</string>
+    <string name="select_time">SÉLECTIONNER LE TEMPS</string>
+    <string name="enter_description">Entrez la description</string>
+    <string name="save_activity">Enregistrer lactivité</string>
+</resources>
