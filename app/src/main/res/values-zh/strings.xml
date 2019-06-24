@@ -1,6 +1,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">
-        <xliff:g id="company_name">PhraseApp </xliff:g>待办事项清单
+        <xliff:g id="app_name">My To-Do List</xliff:g>
     </string>
     <string name="example_edittext">输入你的任务</string>
     <string name="add_activity">添加活动</string>

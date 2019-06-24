@@ -24,13 +24,13 @@ public class HomeActivity extends AppCompatActivity {
 
     ListView listView ;
     String[] taskList = {
-//            "Meet the Doctor",
-//            "Study for exam",
-//            "Meet Anne",
-//            "Watch the Movie",
-//            "Deposit Money",
-//            "Go to Grocery",
-//            "Have a bath"
+            "Meet the Doctor",
+            "Study for exam",
+            "Meet Anne",
+            "Watch the Movie",
+            "Deposit Money",
+            "Do Groceries",
+            "Have a bath"
     };
     ArrayList<String> taskTitles = new ArrayList<>();
     DatabaseHandler db;
@@ -50,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, taskTitles);
+                android.R.layout.simple_list_item_1, android.R.id.text1, taskList);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
