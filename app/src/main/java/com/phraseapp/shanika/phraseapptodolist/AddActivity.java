@@ -24,6 +24,7 @@ public class AddActivity extends AppCompatActivity implements
     Button btnDatePicker, btnTimePicker;
     EditText txtDate, txtTime, inTask, inDesc;
     private int mYear, mMonth, mDay, mHour, mMinute;
+    DateFormat formatDate, formatTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +60,9 @@ public class AddActivity extends AppCompatActivity implements
                         @Override
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
-                            DateFormat format =  DateFormat.getDateInstance();
+                            formatDate =  DateFormat.getDateInstance();
                             c.set(year, monthOfYear, dayOfMonth);
-                            txtDate.setText(format.format(c.getTime()));
+                            txtDate.setText(formatDate.format(c.getTime()));
 
                         }
                     }, mYear, mMonth, mDay);
@@ -71,7 +72,6 @@ public class AddActivity extends AppCompatActivity implements
 
         if (v == btnTimePicker) {
 
-            // Get Current Time
             final Calendar c = Calendar.getInstance();
             mHour = c.get(Calendar.HOUR_OF_DAY);
             mMinute = c.get(Calendar.MINUTE);
@@ -82,10 +82,10 @@ public class AddActivity extends AppCompatActivity implements
                         @Override
                         public void onTimeSet(TimePicker view, int hourOfDay,
                                               int minute) {
-                            DateFormat format =  DateFormat.getTimeInstance();
+                            formatTime =  DateFormat.getTimeInstance();
                             c.set(Calendar.HOUR_OF_DAY,hourOfDay);
                             c.set(Calendar.MINUTE,minute);
-                            txtTime.setText(format.format(c.getTime()));
+                            txtTime.setText(formatTime.format(c.getTime()));
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();
@@ -98,8 +98,18 @@ public class AddActivity extends AppCompatActivity implements
         DatabaseHandler db = new DatabaseHandler(this);
         title = inTask.getText().toString();
         desc = inDesc.getText().toString();
-        date = mYear + ""+ mMonth +""+mDay;
-        time = mHour +""+mMinute;
+
+        Calendar c = Calendar.getInstance();
+        c.set(mYear, mMonth, mDay);
+        date = formatDate.format(c.getTime());
+
+        c = Calendar.getInstance();
+        c.set(Calendar.HOUR_OF_DAY,mHour);
+        c.set(Calendar.MINUTE,mMinute);
+        c.set(mYear, mMonth, mDay);
+        time = formatTime.format(c.getTime());
+//        date = mYear + ""+ mMonth +""+mDay;
+//        time = mHour +""+mMinute;
         db.addTask(new Task(title, desc, date,time));
 
         Intent intent = new Intent(this, HomeActivity.class);

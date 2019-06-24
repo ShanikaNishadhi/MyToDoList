@@ -52,18 +52,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    Task getTask(int id) {
+    Task getTask(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_TASK, new String[] { KEY_ID,
-                        KEY_TITLE, KEY_DESC, KEY_DATE, KEY_TIME  }, KEY_ID + "=?",
+                        KEY_TITLE, KEY_DESC, KEY_DATE, KEY_TIME  }, KEY_TITLE + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
         Task task = new Task(Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4));
-        // return contact
         return task;
     }
 

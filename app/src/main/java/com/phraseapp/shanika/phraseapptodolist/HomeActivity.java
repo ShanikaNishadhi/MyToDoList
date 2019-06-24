@@ -61,6 +61,7 @@ public class HomeActivity extends AppCompatActivity {
                 int itemPosition     = position;
                 String  itemValue    = (String) listView.getItemAtPosition(position);
                 Intent intent = new Intent(HomeActivity.this, TaskDetailsActivity.class);
+                intent.putExtra("taskTitle", itemValue);
                 startActivity(intent);
             }
 

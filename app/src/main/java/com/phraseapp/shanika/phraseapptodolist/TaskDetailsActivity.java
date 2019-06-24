@@ -20,9 +20,13 @@ public class TaskDetailsActivity extends AppCompatActivity {
         et_date = (EditText) findViewById(R.id.et_date);
         et_time = (EditText) findViewById(R.id.et_time);
 
-        et_title.setText("Meet the doctor");
-        et_date.setText("23 Jun 2019");
-        et_time.setText("05:13:00");
-        et_desc.setText("I have to meet the doctor to ask about my reports. My number is 23. ");
+        String taskTitle = getIntent().getStringExtra("taskTitle");
+        DatabaseHandler db = new DatabaseHandler(this);
+        Task task = db.getTask(taskTitle);
+
+        et_title.setText(task.getTitle());
+        et_date.setText(task.getDate());
+        et_time.setText(task.getTime());
+        et_desc.setText(task.getDescription());
     }
 }
